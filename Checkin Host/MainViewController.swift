@@ -61,10 +61,8 @@ class MainViewController: UIViewController, MPCManagerDelegate{
     
     func connectedWithPeer(peerID: MCPeerID) {
         let ids = peerID.displayName.componentsSeparatedByString("-")
-        if(ids[ids.count - 1] == "host") {
-            log.verbose("found the host")
-            SwiftSpinner.show("Host connected!", animated: true)
-            self.performSegueWithIdentifier("showClientViewSegue", sender: nil)
+        if(ids[ids.count - 1] == "client") {
+            log.verbose("found the client")
         }
         
     }
@@ -94,13 +92,13 @@ class MainViewController: UIViewController, MPCManagerDelegate{
             appDelegate.mpcManager.delegate = self
             appDelegate.mpcManager.browser.startBrowsingForPeers()
             appDelegate.mpcManager.advertiser.startAdvertisingPeer()
-            SwiftSpinner.show("waiting for host", animated: true)
         }
         sender.toggleButton()
+        self.performSegueWithIdentifier("showHostViewSegue", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier! == "showClientViewSegue") {
+        if (segue.identifier! == "showHostViewSegue") {
             log.verbose("Preparing to show clientView")
             let targetVC = segue.destinationViewController as! ClientViewController
             targetVC.freq = codeLabel.text!

@@ -25,7 +25,7 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
 
     var delegate: MPCManagerDelegate?
     
-    var session: MCSession!
+    var sessions: [String : MCSession]!
     
     var peer: MCPeerID!
     
@@ -44,16 +44,32 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
         
         log.verbose("service type: \(serviceType)")
         
-        peer = MCPeerID(displayName: NSUUID().UUIDString + "-client")
+        peer = MCPeerID(displayName: NSUUID().UUIDString + "-host")
         
-        session = MCSession(peer: peer)
-        session.delegate = self
+        sessions = [String: MCSession]()
         
         browser = MCNearbyServiceBrowser(peer: peer, serviceType: serviceType)
         browser.delegate = self
         
         advertiser = MCNearbyServiceAdvertiser(peer: peer, discoveryInfo: nil, serviceType: serviceType)
         advertiser.delegate = self
+    }
+    
+    func newOrGetSession(clientID: String) -> MCSession {
+        for (key, value) in sessions {
+            if(key == clientID) {
+                log.verbose("Restoring session with: \(clientID)")
+                //Replace key
+                let session = sessions[key]!
+                sessions.removeValueForKey(key)
+                sessions[clientID] = session
+                return sessions[clientID]!
+            }
+        }
+        println("Creating a new session with: \(clientID)")
+        sessions[clientID] = MCSession(peer: peer)
+        sessions[clientID]!.delegate = self
+        return sessions[clientID]!
     }
     
     func trimFreq(freq: String) -> String {
@@ -74,6 +90,7 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     func browser(browser: MCNearbyServiceBrowser!, foundPeer peerID: MCPeerID!, withDiscoveryInfo info: [NSObject : AnyObject]!) {
         foundPeers.append(peerID)
         log.verbose("Found: \(peerID.displayName)")
+        browser.invitePeer(peerID, toSession: newOrGetSession(peerID.displayName), withContext: nil, timeout: 20)
         delegate?.foundPeer()
     }
     
@@ -147,10 +164,13 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
         let peersArray = NSArray(object: targetPeer)
         var error: NSError?
         
+        /*
         if !session.sendData(dataToSend, toPeers: peersArray as [AnyObject], withMode: MCSessionSendDataMode.Reliable, error: &error) {
             println(error?.localizedDescription)
             return false
         }
+        */
+        log.error("Sending data not implemented")
         
         return true
     }

@@ -8,7 +8,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Checkin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Checkin_Host" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -224,7 +224,7 @@
                         <outlet property="freq4" destination="iiH-3t-Uhi" id="U6g-OT-qKZ"/>
                         <outlet property="freq5" destination="xcL-Ax-kym" id="NYd-6d-bmx"/>
                         <outlet property="freq6" destination="OEz-Ng-z7R" id="Gpt-wG-wyt"/>
-                        <segue destination="8pL-Rk-Whs" kind="show" identifier="showClientViewSegue" id="pYp-LT-T58"/>
+                        <segue destination="8pL-Rk-Whs" kind="show" identifier="showHostViewSegue" id="pYp-LT-T58"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -234,7 +234,7 @@
         <!--Client View Controller-->
         <scene sceneID="c9d-OD-mWb">
             <objects>
-                <viewController id="8pL-Rk-Whs" customClass="ClientViewController" customModule="Checkin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8pL-Rk-Whs" customClass="ClientViewController" customModule="Checkin_Host" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mcd-2k-sgw"/>
                         <viewControllerLayoutGuide type="bottom" id="OOY-fy-OIU"/>
@@ -243,7 +243,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequency set to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZK-lw-Lgr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequency" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZK-lw-Lgr">
                                 <rect key="frame" x="156" y="28" width="289" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="MYm-Of-Z7a"/>
@@ -263,16 +263,41 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number connected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcq-cb-BWa">
+                                <rect key="frame" x="217" y="133" width="166" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="166" id="Qi3-I5-tiz"/>
+                                    <constraint firstAttribute="height" constant="21" id="wQv-Y2-3Hh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctg-lx-myV">
+                                <rect key="frame" x="263" y="162" width="74" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="LxR-UW-2g2"/>
+                                    <constraint firstAttribute="width" constant="74" id="pqr-Z8-Tn9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lLY-wE-taQ" firstAttribute="top" secondItem="CZK-lw-Lgr" secondAttribute="bottom" constant="8" id="1h1-5h-jLq"/>
+                            <constraint firstItem="lcq-cb-BWa" firstAttribute="top" secondItem="lLY-wE-taQ" secondAttribute="bottom" constant="8" id="9oV-XI-HqK"/>
+                            <constraint firstItem="Ctg-lx-myV" firstAttribute="top" secondItem="lcq-cb-BWa" secondAttribute="bottom" constant="8" id="DJC-ho-vYa"/>
                             <constraint firstAttribute="centerX" secondItem="lLY-wE-taQ" secondAttribute="centerX" id="Jcr-rB-hwz"/>
+                            <constraint firstAttribute="centerX" secondItem="Ctg-lx-myV" secondAttribute="centerX" id="ch7-IA-aHD"/>
                             <constraint firstItem="CZK-lw-Lgr" firstAttribute="top" secondItem="Mcd-2k-sgw" secondAttribute="bottom" constant="8" id="mRX-qp-0MC"/>
+                            <constraint firstAttribute="centerX" secondItem="lcq-cb-BWa" secondAttribute="centerX" id="rxV-IW-dbX"/>
                             <constraint firstAttribute="centerX" secondItem="CZK-lw-Lgr" secondAttribute="centerX" id="xGH-6X-Q9b"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="connectCountLabel" destination="Ctg-lx-myV" id="Lj2-In-6od"/>
                         <outlet property="titleLabel" destination="lLY-wE-taQ" id="oyi-WZ-Rph"/>
                     </connections>
                 </viewController>
