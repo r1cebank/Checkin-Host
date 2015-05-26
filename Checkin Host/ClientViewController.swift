@@ -27,6 +27,23 @@ class ClientViewController: UIViewController, MPCManagerDelegate {
     
     override func viewWillAppear(animated: Bool) {
         appDelegate.mpcManager.delegate = self
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleMPCReceivedDataWithNotification:", name: "receivedMPCDataNotification", object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func handleMPCReceivedDataWithNotification(notification: NSNotification) {
+        log.verbose("Received data from client")
+        let receivedDataDictionary = notification.object as! Dictionary<String, AnyObject>
+        let data = receivedDataDictionary["data"] as? NSData
+        let dataDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as! Dictionary<String, AnyObject>
+        if let message = dataDictionary["message"] as? Dictionary<String, String> {
+            if let checkInID = message["checkin"] {
+                log.verbose("Got id: \(checkInID)")
+            }
+        }
     }
     
     
@@ -41,6 +58,12 @@ class ClientViewController: UIViewController, MPCManagerDelegate {
     }
     func invitationWasReceived(fromPeer: String) {
     }
+    
+    @IBAction func checkinClicked(sender: UIButton) {
+        let message: [String: String] = ["message" : "checkin"]
+        appDelegate.mpcManager.sendData(dictionaryWithData: message)
+    }
+    
     func connectedWithPeer(peerID: MCPeerID) {
         log.verbose("Connected with a client")
         dispatch_async(dispatch_get_main_queue(), {

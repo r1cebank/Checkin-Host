@@ -283,15 +283,34 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVP-cy-bIH">
+                                <rect key="frame" x="16" y="282.5" width="95" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="RzJ-qm-V1H"/>
+                                    <constraint firstAttribute="width" constant="95" id="qVd-IZ-Ya8"/>
+                                </constraints>
+                                <state key="normal" title="Check In" backgroundImage="Button Background">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="Button Background - Selected">
+                                    <color key="titleColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkinClicked:" destination="8pL-Rk-Whs" eventType="touchUpInside" id="ycV-zb-zJZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lLY-wE-taQ" firstAttribute="top" secondItem="CZK-lw-Lgr" secondAttribute="bottom" constant="8" id="1h1-5h-jLq"/>
+                            <constraint firstAttribute="centerY" secondItem="mVP-cy-bIH" secondAttribute="centerY" id="4MN-8u-UGy"/>
                             <constraint firstItem="lcq-cb-BWa" firstAttribute="top" secondItem="lLY-wE-taQ" secondAttribute="bottom" constant="8" id="9oV-XI-HqK"/>
                             <constraint firstItem="Ctg-lx-myV" firstAttribute="top" secondItem="lcq-cb-BWa" secondAttribute="bottom" constant="8" id="DJC-ho-vYa"/>
                             <constraint firstAttribute="centerX" secondItem="lLY-wE-taQ" secondAttribute="centerX" id="Jcr-rB-hwz"/>
                             <constraint firstAttribute="centerX" secondItem="Ctg-lx-myV" secondAttribute="centerX" id="ch7-IA-aHD"/>
                             <constraint firstItem="CZK-lw-Lgr" firstAttribute="top" secondItem="Mcd-2k-sgw" secondAttribute="bottom" constant="8" id="mRX-qp-0MC"/>
+                            <constraint firstItem="mVP-cy-bIH" firstAttribute="leading" secondItem="fzQ-GX-70E" secondAttribute="leadingMargin" id="q2f-Re-pxS"/>
                             <constraint firstAttribute="centerX" secondItem="lcq-cb-BWa" secondAttribute="centerX" id="rxV-IW-dbX"/>
                             <constraint firstAttribute="centerX" secondItem="CZK-lw-Lgr" secondAttribute="centerX" id="xGH-6X-Q9b"/>
                         </constraints>

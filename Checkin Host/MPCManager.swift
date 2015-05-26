@@ -163,18 +163,18 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     
     // MARK: Custom method implementation
     
-    func sendData(dictionaryWithData dictionary: Dictionary<String, String>, toPeer targetPeer: MCPeerID) -> Bool {
+    func sendData(dictionaryWithData dictionary: Dictionary<String, String>) -> Bool {
         let dataToSend = NSKeyedArchiver.archivedDataWithRootObject(dictionary)
-        let peersArray = NSArray(object: targetPeer)
         var error: NSError?
         
-        /*
-        if !session.sendData(dataToSend, toPeers: peersArray as [AnyObject], withMode: MCSessionSendDataMode.Reliable, error: &error) {
-            println(error?.localizedDescription)
-            return false
+        for (key, session) in sessions {
+            let peersArray = NSArray(object: session.connectedPeers[0])
+            if !session.sendData(dataToSend, toPeers: peersArray as [AnyObject], withMode: MCSessionSendDataMode.Reliable, error: &error) {
+                log.error(error?.localizedDescription)
+                return false
+            }
         }
-        */
-        log.error("Sending data not implemented")
+        //log.error("Sending data not implemented")
         
         return true
     }
