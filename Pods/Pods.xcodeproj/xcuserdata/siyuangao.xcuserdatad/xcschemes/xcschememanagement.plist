@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-Checkin Host-Canvas.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Checkin Host-SwiftSpinner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Checkin Host-XCGLogger.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Checkin Host.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>241971C19AE2E637173B6E11</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2CBF430617E76E1DA4E1CA81</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>470221F8BABE1EF07838BD24</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E9D5DC6043232D707F89CE4D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,16 @@
+PODS:
+  - Canvas (0.1.2)
+  - SwiftSpinner (0.6.7)
+  - XCGLogger (2.0)
+
+DEPENDENCIES:
+  - Canvas
+  - SwiftSpinner
+  - XCGLogger
+
+SPEC CHECKSUMS:
+  Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
+  SwiftSpinner: 20abe2e2433b8815e1ef39c27630d0910c3c3f35
+  XCGLogger: 90570901ddf86d5479672d61a1b0a639235b851a
+
+COCOAPODS: 0.37.1
