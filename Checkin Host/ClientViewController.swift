@@ -25,6 +25,11 @@ class ClientViewController: UIViewController, MPCManagerDelegate {
         titleLabel.text = freq
     }
     
+    override func viewWillAppear(animated: Bool) {
+        appDelegate.mpcManager.delegate = self
+    }
+    
+    
     override func didReceiveMemoryWarning() {
     }
     
@@ -37,6 +42,16 @@ class ClientViewController: UIViewController, MPCManagerDelegate {
     func invitationWasReceived(fromPeer: String) {
     }
     func connectedWithPeer(peerID: MCPeerID) {
-        
+        log.verbose("Connected with a client")
+        dispatch_async(dispatch_get_main_queue(), {
+            self.connectCountLabel.text = String(self.appDelegate.mpcManager.sessions.count)
+        })
+        log.verbose(String(self.appDelegate.mpcManager.sessions.count))
+    }
+    
+    func disconnectedWithPeer(peerID: MCPeerID) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.connectCountLabel.text = String(self.appDelegate.mpcManager.sessions.count)
+        })
     }
 }

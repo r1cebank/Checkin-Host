@@ -55,6 +55,9 @@ class MainViewController: UIViewController, MPCManagerDelegate{
         log.verbose("Peer Lost")
     }
     
+    func disconnectedWithPeer(peerID: MCPeerID) {
+    }
+    
     func invitationWasReceived(fromPeer: String) {
         
     }

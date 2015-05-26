@@ -134,7 +134,7 @@
                                     <constraint firstAttribute="width" constant="148" id="1S3-Hd-3Ab"/>
                                     <constraint firstAttribute="height" constant="45" id="RXy-6b-cXv"/>
                                 </constraints>
-                                <state key="normal" title="Connect" backgroundImage="Button Background">
+                                <state key="normal" title="Start" backgroundImage="Button Background">
                                     <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
