@@ -12,11 +12,12 @@
 		ECE636071B141A8500FB5E96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE636061B141A8500FB5E96 /* Images.xcassets */; };
 		ECE6360A1B141A8500FB5E96 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECE636081B141A8500FB5E96 /* LaunchScreen.xib */; };
 		ECE636161B141A8500FB5E96 /* Checkin_HostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE636151B141A8500FB5E96 /* Checkin_HostTests.swift */; };
-		ECE636241B141B8300FB5E96 /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE636221B141B8300FB5E96 /* ClientViewController.swift */; };
+		ECE636241B141B8300FB5E96 /* HostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE636221B141B8300FB5E96 /* HostViewController.swift */; };
 		ECE636251B141B8300FB5E96 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE636231B141B8300FB5E96 /* MainViewController.swift */; };
 		ECE6362A1B141BBF00FB5E96 /* FreqList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE636281B141BBF00FB5E96 /* FreqList.swift */; };
 		ECE6362B1B141BBF00FB5E96 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE636291B141BBF00FB5E96 /* MPCManager.swift */; };
 		ECE6362E1B141C6500FB5E96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECE6362C1B141C6500FB5E96 /* Main.storyboard */; };
+		ECE643F41B16769100C05375 /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE643F31B16769100C05375 /* CheckinViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +42,12 @@
 		ECE6360F1B141A8500FB5E96 /* Checkin HostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Checkin HostTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE636141B141A8500FB5E96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECE636151B141A8500FB5E96 /* Checkin_HostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkin_HostTests.swift; sourceTree = "<group>"; };
-		ECE636221B141B8300FB5E96 /* ClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
+		ECE636221B141B8300FB5E96 /* HostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostViewController.swift; sourceTree = "<group>"; };
 		ECE636231B141B8300FB5E96 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		ECE636281B141BBF00FB5E96 /* FreqList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreqList.swift; sourceTree = "<group>"; };
 		ECE636291B141BBF00FB5E96 /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
 		ECE6362D1B141C6500FB5E96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECE643F31B16769100C05375 /* CheckinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,8 +157,9 @@
 		ECE636211B141B6900FB5E96 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				ECE636221B141B8300FB5E96 /* ClientViewController.swift */,
+				ECE636221B141B8300FB5E96 /* HostViewController.swift */,
 				ECE636231B141B8300FB5E96 /* MainViewController.swift */,
+				ECE643F31B16769100C05375 /* CheckinViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -331,7 +334,8 @@
 				ECE636251B141B8300FB5E96 /* MainViewController.swift in Sources */,
 				ECE636001B141A8500FB5E96 /* AppDelegate.swift in Sources */,
 				ECE6362B1B141BBF00FB5E96 /* MPCManager.swift in Sources */,
-				ECE636241B141B8300FB5E96 /* ClientViewController.swift in Sources */,
+				ECE636241B141B8300FB5E96 /* HostViewController.swift in Sources */,
+				ECE643F41B16769100C05375 /* CheckinViewController.swift in Sources */,
 				ECE6362A1B141BBF00FB5E96 /* FreqList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

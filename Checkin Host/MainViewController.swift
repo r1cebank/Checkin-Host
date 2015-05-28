@@ -26,7 +26,6 @@ class MainViewController: UIViewController, MPCManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         freq1.setTitle(freq[0], forState: UIControlState.Normal)
         freq2.setTitle(freq[1], forState: UIControlState.Normal)
         freq3.setTitle(freq[2], forState: UIControlState.Normal)
@@ -103,7 +102,7 @@ class MainViewController: UIViewController, MPCManagerDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier! == "showHostViewSegue") {
             log.verbose("Preparing to show clientView")
-            let targetVC = segue.destinationViewController as! ClientViewController
+            let targetVC = segue.destinationViewController as! HostViewController
             targetVC.freq = codeLabel.text!
         }
     }

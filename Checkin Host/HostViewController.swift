@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import MultipeerConnectivity
 
-class ClientViewController: UIViewController, MPCManagerDelegate {
+class HostViewController: UIViewController, MPCManagerDelegate {
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
@@ -21,7 +21,6 @@ class ClientViewController: UIViewController, MPCManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         titleLabel.text = freq
     }
     
@@ -60,8 +59,7 @@ class ClientViewController: UIViewController, MPCManagerDelegate {
     }
     
     @IBAction func checkinClicked(sender: UIButton) {
-        let message: [String: String] = ["message" : "checkin"]
-        appDelegate.mpcManager.sendData(dictionaryWithData: message)
+        performSegueWithIdentifier("showCheckinViewSegue", sender: nil)
     }
     
     func connectedWithPeer(peerID: MCPeerID) {
