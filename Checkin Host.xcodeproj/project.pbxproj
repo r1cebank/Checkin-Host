@@ -18,6 +18,7 @@
 		ECE6362B1B141BBF00FB5E96 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE636291B141BBF00FB5E96 /* MPCManager.swift */; };
 		ECE6362E1B141C6500FB5E96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECE6362C1B141C6500FB5E96 /* Main.storyboard */; };
 		ECE643F41B16769100C05375 /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE643F31B16769100C05375 /* CheckinViewController.swift */; };
+		ECE643F61B1781FD00C05375 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE643F51B1781FD00C05375 /* QuizViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		ECE636291B141BBF00FB5E96 /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
 		ECE6362D1B141C6500FB5E96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECE643F31B16769100C05375 /* CheckinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
+		ECE643F51B1781FD00C05375 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				ECE636221B141B8300FB5E96 /* HostViewController.swift */,
 				ECE636231B141B8300FB5E96 /* MainViewController.swift */,
 				ECE643F31B16769100C05375 /* CheckinViewController.swift */,
+				ECE643F51B1781FD00C05375 /* QuizViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECE636251B141B8300FB5E96 /* MainViewController.swift in Sources */,
+				ECE643F61B1781FD00C05375 /* QuizViewController.swift in Sources */,
 				ECE636001B141A8500FB5E96 /* AppDelegate.swift in Sources */,
 				ECE6362B1B141BBF00FB5E96 /* MPCManager.swift in Sources */,
 				ECE636241B141B8300FB5E96 /* HostViewController.swift in Sources */,

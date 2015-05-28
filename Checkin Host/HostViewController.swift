@@ -61,6 +61,9 @@ class HostViewController: UIViewController, MPCManagerDelegate {
     @IBAction func checkinClicked(sender: UIButton) {
         performSegueWithIdentifier("showCheckinViewSegue", sender: nil)
     }
+    @IBAction func quizClicked(sender: UIButton) {
+        performSegueWithIdentifier("showQuizViewSegue", sender: nil)
+    }
     
     func connectedWithPeer(peerID: MCPeerID) {
         log.verbose("Connected with a client")

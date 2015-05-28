@@ -300,6 +300,23 @@
                                     <action selector="checkinClicked:" destination="8pL-Rk-Whs" eventType="touchUpInside" id="ycV-zb-zJZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNF-6c-29E">
+                                <rect key="frame" x="119" y="283" width="95" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="PlF-Dc-S3b"/>
+                                    <constraint firstAttribute="height" constant="35" id="iaK-4A-15p"/>
+                                </constraints>
+                                <state key="normal" title="Quiz" backgroundImage="Button Background">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="Button Background - Selected">
+                                    <color key="titleColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="quizClicked:" destination="8pL-Rk-Whs" eventType="touchUpInside" id="eyV-c9-0qs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -308,6 +325,8 @@
                             <constraint firstItem="lcq-cb-BWa" firstAttribute="top" secondItem="lLY-wE-taQ" secondAttribute="bottom" constant="8" id="9oV-XI-HqK"/>
                             <constraint firstItem="Ctg-lx-myV" firstAttribute="top" secondItem="lcq-cb-BWa" secondAttribute="bottom" constant="8" id="DJC-ho-vYa"/>
                             <constraint firstAttribute="centerX" secondItem="lLY-wE-taQ" secondAttribute="centerX" id="Jcr-rB-hwz"/>
+                            <constraint firstAttribute="centerY" secondItem="bNF-6c-29E" secondAttribute="centerY" id="Pic-fj-il9"/>
+                            <constraint firstItem="bNF-6c-29E" firstAttribute="leading" secondItem="mVP-cy-bIH" secondAttribute="trailing" constant="8" id="RsS-Mo-SLC"/>
                             <constraint firstAttribute="centerX" secondItem="Ctg-lx-myV" secondAttribute="centerX" id="ch7-IA-aHD"/>
                             <constraint firstItem="CZK-lw-Lgr" firstAttribute="top" secondItem="Mcd-2k-sgw" secondAttribute="bottom" constant="8" id="mRX-qp-0MC"/>
                             <constraint firstItem="mVP-cy-bIH" firstAttribute="leading" secondItem="fzQ-GX-70E" secondAttribute="leadingMargin" id="q2f-Re-pxS"/>
@@ -319,11 +338,74 @@
                         <outlet property="connectCountLabel" destination="Ctg-lx-myV" id="Lj2-In-6od"/>
                         <outlet property="titleLabel" destination="lLY-wE-taQ" id="oyi-WZ-Rph"/>
                         <segue destination="HOe-HX-7xx" kind="show" identifier="showCheckinViewSegue" id="CnZ-EA-dm9"/>
+                        <segue destination="c5K-B7-RmK" kind="show" identifier="showQuizViewSegue" id="Nbu-7L-WWx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rTi-gV-Iuc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="732" y="311"/>
+        </scene>
+        <!--Quiz View Controller-->
+        <scene sceneID="jMm-2c-SZM">
+            <objects>
+                <viewController id="c5K-B7-RmK" customClass="QuizViewController" customModule="Checkin_Host" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="swE-vb-vPX"/>
+                        <viewControllerLayoutGuide type="bottom" id="piT-Yo-us6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dhm-l6-LtD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXV-li-KwL">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="barTintColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Quiz" id="WBZ-PC-z3I">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="dPe-Go-Jxa">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="dismiss:" destination="c5K-B7-RmK" id="qYL-ML-RkZ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMK-Bt-9lg">
+                                <rect key="frame" x="205" y="145" width="191" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="MhV-rr-YfP"/>
+                                    <constraint firstAttribute="width" constant="191" id="gt1-eg-ztE"/>
+                                </constraints>
+                                <state key="normal" title="Send Action to Clients" backgroundImage="Button Background">
+                                    <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" title="Send Action to Clients" backgroundImage="Button Background - Selected">
+                                    <color key="titleColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionClicked:" destination="c5K-B7-RmK" eventType="touchUpInside" id="1yQ-fN-Cyw"/>
+                                    <action selector="checkinClicked:" destination="HOe-HX-7xx" eventType="touchUpInside" id="i9Z-f6-gcg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dXV-li-KwL" firstAttribute="top" secondItem="swE-vb-vPX" secondAttribute="bottom" id="IdG-MP-Sq1"/>
+                            <constraint firstAttribute="centerX" secondItem="JMK-Bt-9lg" secondAttribute="centerX" id="SrT-C1-cQ4"/>
+                            <constraint firstItem="dXV-li-KwL" firstAttribute="leading" secondItem="Dhm-l6-LtD" secondAttribute="leading" id="fJs-yl-Dfx"/>
+                            <constraint firstItem="JMK-Bt-9lg" firstAttribute="top" secondItem="dXV-li-KwL" secondAttribute="bottom" constant="81" id="rWk-KP-22N"/>
+                            <constraint firstAttribute="centerX" secondItem="dXV-li-KwL" secondAttribute="centerX" id="uJK-C8-gPX"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="634-3J-lmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="732" y="987"/>
         </scene>
         <!--Checkin View Controller-->
         <scene sceneID="HAy-2d-r1B">
@@ -346,6 +428,7 @@
                                 <items>
                                     <navigationItem title="Check in" id="96n-61-Ud3">
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="5bf-6O-Fjk">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="dismiss:" destination="HOe-HX-7xx" id="xW9-iC-hfo"/>
                                             </connections>
