@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
+import MultipeerConnectivity
 
 class CheckinViewController: UIViewController, UITableViewDataSource {
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    var checkedUser: [String]!
+    var checkedUser: [String: String]!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,7 +23,7 @@ class CheckinViewController: UIViewController, UITableViewDataSource {
     }
     override func viewWillAppear(animated: Bool) {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleMPCReceivedDataWithNotification:", name: "receivedMPCDataNotification", object: nil)
-        checkedUser = [String]()
+        checkedUser = [String : String]()
     }
     override func viewWillDisappear(animated: Bool) {
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -41,12 +42,13 @@ class CheckinViewController: UIViewController, UITableViewDataSource {
         log.verbose("Received data from client")
         let receivedDataDictionary = notification.object as! Dictionary<String, AnyObject>
         let data = receivedDataDictionary["data"] as? NSData
+        let peer = receivedDataDictionary["fromPeer"] as! MCPeerID
         let dataDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as! Dictionary<String, AnyObject>
         if let message = dataDictionary["message"] as? Dictionary<String, String> {
             if let checkInID = message["checkin"] {
                 log.verbose("Got id: \(checkInID)")
-                if(checkedUser.indexOfObject(checkInID) == NSNotFound) {
-                    checkedUser.append(checkInID)
+                if(checkedUser[peer.displayName!] == nil) {
+                    checkedUser[peer.displayName!] = checkInID
                 }
             }
         }
@@ -61,7 +63,7 @@ class CheckinViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("eventCell") as! UITableViewCell
-        cell.textLabel?.text = checkedUser[indexPath.row]
+        cell.textLabel?.text = checkedUser[checkedUser.keys.array[indexPath.row]]
         cell.detailTextLabel?.text = "checked"
         return cell
     }
