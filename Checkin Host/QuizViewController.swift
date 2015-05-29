@@ -13,6 +13,7 @@ import MultipeerConnectivity
 class QuizViewController: UIViewController {
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var checkedUser: [String: String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,5 +32,24 @@ class QuizViewController: UIViewController {
     @IBAction func actionClicked(sender: UIButton) {
         let message: [String: String] = ["message" : "quiz"]
         appDelegate.mpcManager.sendData(dictionaryWithData: message)
+    }
+    
+    func handleMPCReceivedDataWithNotification(notification: NSNotification) {
+        log.verbose("Received data from client")
+        let receivedDataDictionary = notification.object as! Dictionary<String, AnyObject>
+        let data = receivedDataDictionary["data"] as? NSData
+        let peer = receivedDataDictionary["fromPeer"] as! MCPeerID
+        let dataDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as! Dictionary<String, AnyObject>
+        if let message = dataDictionary["message"] as? Dictionary<String, String> {
+            if let checkInID = message["checkin"] {
+                log.verbose("Got id: \(checkInID)")
+                if(checkedUser[peer.displayName!] == nil) {
+                    checkedUser[peer.displayName!] = checkInID
+                }
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), {
+            //
+        })
     }
 }
